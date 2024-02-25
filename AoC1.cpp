@@ -18,9 +18,10 @@ unordered_map<string, char> numberMap = {
 
 char findFirstNumber(string input) {
     for (int i = 0; i < input.length(); ++i) {
-        if (isDigit(input[i])) {
+        if (isdigit(input[i])) {
             return input[i];
         }
+        // Maps a string to the respective digit, used for part two
         string substring = "";
         for (int j = i; j < input.length(); ++j) {
             substring += input[j];
@@ -28,6 +29,7 @@ char findFirstNumber(string input) {
                 return numberMap[substring];
             }
         }
+        
     }
     return '0'; // indicates no number found
 }
@@ -37,6 +39,7 @@ char findLastNumber(string input) {
         if (isdigit(input[i])) {
             return input[i];
         }
+        
         string substring = "";
         for (int j = i; j >= 0; --j) {
             substring = input[j] + substring;
@@ -44,6 +47,7 @@ char findLastNumber(string input) {
                 return numberMap[substring];
             }
         }
+        
     }
     return '0'; // indicates no number found
 }
@@ -56,7 +60,7 @@ string sumNums(char firstNum, char lastNum) {
 
 int main() {
   // Open a file for reading
-  ifstream inputFile("example.csv");
+  ifstream inputFile("testcode.txt");
 
   // Read the file line by line
   string line;
@@ -65,7 +69,9 @@ int main() {
     bigSum += stoi(sumNums(findFirstNumber(line), findLastNumber(line)));
   }
 
-  cout << "Sum: " << bigSum << endl; // Expect ANSWER! :D
+  cout << "Sum: " << bigSum << endl; // Expect ANSWER! :D 
+  // Part 1: 54632
+  // Part 2: 54019
   
   // Close the file
   inputFile.close();
