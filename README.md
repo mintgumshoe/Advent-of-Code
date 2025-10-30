@@ -1,2 +1,4 @@
-# Advent-of-Code-2023
-Solution attempts for AoC23
+# Advent-of-Code
+
+Solution attempts for Advent of Code, 
+[NEW!] now with no calendar year limitations
